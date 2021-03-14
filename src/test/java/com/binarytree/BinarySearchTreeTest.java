@@ -14,7 +14,7 @@ public class BinarySearchTreeTest {
     }
 
     @Test
-    public void checkBinaryTree() {
+    public void createBinaryTree() {
         Node<Integer> first = new Node(56);
         Node<Integer> second = new Node(30);
         Node<Integer> third = new Node(70);
@@ -23,8 +23,25 @@ public class BinarySearchTreeTest {
         bst.add(second);
         bst.add(third);
 
+        bst.getInOrder();
+        bst.getPreOrder();
+        bst.getPostOrder();
+
         boolean result = bst.root.left.data.equals(30) && bst.root.data.equals(56) && bst.root.right.data.equals(70) ;
         Assert.assertTrue(result);
-        bst.getInOrder();
+    }
+
+    @Test
+    public void Test_to_getSize() {
+        Node<Integer> first = new Node(56);
+        Node<Integer> second = new Node(30);
+        Node<Integer> third = new Node(70);
+
+        bst.add(first);
+        bst.add(second);
+        bst.add(third);
+        
+        int result = bst.getSize();
+        Assert.assertEquals(3, result);
     }
 }
