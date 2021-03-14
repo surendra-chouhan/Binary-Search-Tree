@@ -72,4 +72,18 @@ public class BinarySearchTree {
         else
             return(1 + size(root.left) + size(root.right));
     }
+
+    public <T extends Comparable> Node<T> getSearch(T data){
+        System.out.println("\n Element " + data + " found");
+        return search(root, data);
+    }
+
+    public <T extends Comparable> Node<T> search(Node root, T data) {
+        if (root == null || root.data == data)
+            return root;
+        else if (root.data.compareTo(data) < 0)
+            return search(root.right, data);
+        else
+            return search(root.left, data);
+    }
 }
